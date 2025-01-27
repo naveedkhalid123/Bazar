@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bazarSplash" translatesAutoresizingMaskIntoConstraints="NO" id="Ieu-bd-v2h">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ngd-aG-MBt">
+                                <rect key="frame" x="128" y="346" width="158" height="44"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bazarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="w14-Au-a3h">
+                                        <rect key="frame" x="12" y="3" width="38" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="MEd-rf-ABB"/>
+                                            <constraint firstAttribute="width" constant="38" id="tV7-mA-Xtq"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bazar." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlQ-jq-Y2G">
+                                        <rect key="frame" x="60.999999999999993" y="4" width="86.333333333333314" height="36.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="31"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JlQ-jq-Y2G" firstAttribute="centerY" secondItem="w14-Au-a3h" secondAttribute="centerY" id="44Y-EE-vZ3"/>
+                                    <constraint firstItem="JlQ-jq-Y2G" firstAttribute="leading" secondItem="w14-Au-a3h" secondAttribute="trailing" constant="11" id="OCf-OE-hCc"/>
+                                    <constraint firstAttribute="height" constant="44" id="Zve-RE-fgs"/>
+                                    <constraint firstAttribute="width" constant="158" id="aZd-i2-hii"/>
+                                    <constraint firstItem="w14-Au-a3h" firstAttribute="leading" secondItem="Ngd-aG-MBt" secondAttribute="leading" constant="12" id="hel-EV-0Rl"/>
+                                    <constraint firstItem="w14-Au-a3h" firstAttribute="centerY" secondItem="Ngd-aG-MBt" secondAttribute="centerY" id="r3N-n0-aZV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <constraints>
+                            <constraint firstItem="Ngd-aG-MBt" firstAttribute="centerX" secondItem="Ieu-bd-v2h" secondAttribute="centerX" id="0BV-vt-cXw"/>
+                            <constraint firstItem="Ieu-bd-v2h" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="7gu-Ut-wne"/>
+                            <constraint firstItem="Ngd-aG-MBt" firstAttribute="centerY" secondItem="Ieu-bd-v2h" secondAttribute="centerY" id="Cfu-A7-FmL"/>
+                            <constraint firstItem="Ieu-bd-v2h" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Ehp-pb-BTz"/>
+                            <constraint firstItem="Ieu-bd-v2h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Tft-QB-ZKc"/>
+                            <constraint firstItem="Ieu-bd-v2h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iiU-2Q-H8h"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="374.18478260869568"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bazarIcon" width="38.333332061767578" height="38"/>
+        <image name="bazarSplash" width="375" height="812"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
