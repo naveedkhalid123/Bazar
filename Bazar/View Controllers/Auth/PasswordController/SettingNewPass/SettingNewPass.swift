@@ -9,8 +9,6 @@ import UIKit
 
 class SettingNewPass: UIViewController {
     
-    
-    
     private let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "backArrow"), for: .normal)

@@ -6,11 +6,9 @@
 //
 
 
-
 import UIKit
 
 class ResetPassWithEmail: UIViewController {
-    
     
     private let backButton: UIButton = {
         let button = UIButton()

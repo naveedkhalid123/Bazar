@@ -106,7 +106,7 @@ class OnbordingViewController: UIViewController, UICollectionViewDelegate, UICol
         view.backgroundColor = .white
         setUp()
         // For page control
-           pageControl.numberOfPages = onBoardingImagesArr.count
+        pageControl.numberOfPages = onBoardingImagesArr.count
     }
     
     
@@ -246,7 +246,7 @@ class OnbordingViewController: UIViewController, UICollectionViewDelegate, UICol
     }
 
 
-       // scrollView page controlling function
+      
        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
            let currentPage = Int(scrollView.contentOffset.x / onBoardingCollectionView.bounds.width)
            pageControl.currentPage = currentPage
@@ -254,7 +254,6 @@ class OnbordingViewController: UIViewController, UICollectionViewDelegate, UICol
        }
 
     
-   
     
     // MARK: Onboarding Collection View
     
