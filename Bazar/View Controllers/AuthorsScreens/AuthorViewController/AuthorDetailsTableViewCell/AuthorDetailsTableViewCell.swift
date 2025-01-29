@@ -30,6 +30,7 @@ class AuthorDetailsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         contentView.addSubview(authorImageView)
         contentView.addSubview(authorNameLabel)
         contentView.addSubview(authorDescriptionLabel)
