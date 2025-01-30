@@ -8,3 +8,5 @@ Bazar - iOS Shopping App  Bazar is an iOS application developed using Swift and 
 
 ![Banner](https://github.com/naveedkhalid123/Bazar/blob/5a17e4210ffd6153a9552ee69baa7685e64e1da0/Banner-3.jpg?raw=true)
 
+![Banner 4](https://github.com/naveedkhalid123/Bazar/blob/058b64481fee061ea869825bc35691b4eaa9217d/Banner-4.jpg?raw=true)
+
