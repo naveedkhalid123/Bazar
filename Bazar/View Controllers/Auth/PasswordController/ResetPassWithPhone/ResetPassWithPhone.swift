@@ -34,6 +34,8 @@ class ResetPassWithPhone: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    
     let phoneNumberlbl: UILabel = {
         let label = UILabel()
         label.text = "Phone Number"
@@ -110,6 +112,7 @@ class ResetPassWithPhone: UIViewController {
         setUpBackArrow()
         setUPResetPassLbl()
         setUpSubHead()
+        
         setUpEmaillbl()
         setUpTfView()
         setUpPhoneImage()

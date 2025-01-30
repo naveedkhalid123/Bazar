@@ -405,6 +405,7 @@ class AuthorViewController: UIViewController, UICollectionViewDelegate, UICollec
         setUpAuthorsTableView()
         
     }
+    
     private func setUpHeaderView() {
         view.addSubview(headerView)
         NSLayoutConstraint.activate([
