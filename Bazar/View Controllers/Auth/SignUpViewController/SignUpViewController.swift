@@ -33,6 +33,7 @@ class SignUpViewController: UIViewController {
     
     private let signUpView: UIView = {
         let view = UIView()
+        view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -196,7 +197,6 @@ class SignUpViewController: UIViewController {
     
     private let passRecommendationView: UIView = {
         let view = UIView()
-        //view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -297,6 +297,8 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        passPreviewBtn.addTarget(self, action: #selector(previewButtonPressed(_:)), for: .touchUpInside)
+
         view.backgroundColor = .white
         setUp()
     }
@@ -375,6 +377,7 @@ class SignUpViewController: UIViewController {
         NSLayoutConstraint.activate([
             signUpView.leadingAnchor.constraint(equalTo: scrollContainer.leadingAnchor, constant: 24),
             signUpView.trailingAnchor.constraint(equalTo: scrollContainer.trailingAnchor, constant: -24),
+          //  signUpView.centerXAnchor.constraint(equalTo: scrollContainer.centerXAnchor),
             signUpView.centerYAnchor.constraint(equalTo: scrollContainer.centerYAnchor),
             signUpView.bottomAnchor.constraint(equalTo: scrollContainer.bottomAnchor,constant: -56)
             
@@ -464,9 +467,9 @@ class SignUpViewController: UIViewController {
     }
     
     private func setUpNewPassPreview(){
-        newPasslblTextField.addSubview(passPreviewBtn)
+        signUpView.addSubview(passPreviewBtn)
         NSLayoutConstraint.activate([
-            passPreviewBtn.trailingAnchor.constraint(equalTo: newPasslblTextField.trailingAnchor, constant: -16),
+            passPreviewBtn.trailingAnchor.constraint(equalTo: signUpView.trailingAnchor, constant: -40),
             passPreviewBtn.centerYAnchor.constraint(equalTo: newPasslblTextField.centerYAnchor),
             passPreviewBtn.widthAnchor.constraint(equalToConstant: 24),
             passPreviewBtn.heightAnchor.constraint(equalToConstant: 24),

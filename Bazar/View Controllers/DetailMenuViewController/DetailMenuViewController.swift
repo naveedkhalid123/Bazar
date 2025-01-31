@@ -23,7 +23,7 @@ class DetailMenuViewController: UIViewController {
     
     private let lineView: UIView = {
         let view = UIView()
-        view.backgroundColor = .appColor(.grey)
+        view.backgroundColor = UIColor(named: "lineView")
         view.layer.cornerRadius = 5
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

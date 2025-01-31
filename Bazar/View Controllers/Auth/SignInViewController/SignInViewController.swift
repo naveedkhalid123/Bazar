@@ -178,7 +178,7 @@ class SignInViewController: UIViewController {
     private let leftLineView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.appColor(.grey)
+        view.backgroundColor = UIColor.appColor(.lineView)
         return view
     }()
     
@@ -195,7 +195,7 @@ class SignInViewController: UIViewController {
     private let rightLineView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.appColor(.grey)
+        view.backgroundColor = UIColor.appColor(.lineView)
         return view
     }()
     
@@ -203,7 +203,7 @@ class SignInViewController: UIViewController {
     private let googleView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderColor = UIColor.appColor(.grey)?.cgColor
+        view.layer.borderColor = UIColor.appColor(.lineView)?.cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 24
         return view
@@ -237,7 +237,7 @@ class SignInViewController: UIViewController {
     private let appleView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderColor = UIColor.appColor(.grey)?.cgColor
+        view.layer.borderColor = UIColor.appColor(.lineView)?.cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 24
         return view
@@ -322,19 +322,14 @@ class SignInViewController: UIViewController {
         setUpLabelButtonStack()
         
         setUpOrWithLbl()
-        setUpleftLineView()
-        setUpRightLineView()
         
         setUpGoogleView()
         setUpGoogleSubView()
-        setUpGoogleImage()
-        setUpSignInWithGooglelbl()
+        
         setUpGoogleViewButton()
         
         setUpAppleView()
         setUpAppleSubView()
-        setUpAppleImage()
-        setUpSignInWithApplelbl()
         setUPAppleViewButton()
     }
     
@@ -352,8 +347,8 @@ class SignInViewController: UIViewController {
     private func setUpSignInView(){
         view.addSubview(signInView)
         NSLayoutConstraint.activate([
-            signInView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            signInView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            signInView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            signInView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             signInView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
@@ -361,7 +356,7 @@ class SignInViewController: UIViewController {
     private func setUpWelcomeLbl(){
         signInView.addSubview(welcomeLbl)
         NSLayoutConstraint.activate([
-            welcomeLbl.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0),
+            welcomeLbl.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24),
             welcomeLbl.topAnchor.constraint(equalTo: signInView.topAnchor, constant: 0)
         ])
     }
@@ -369,7 +364,7 @@ class SignInViewController: UIViewController {
     private func setUpSubHead(){
         signInView.addSubview(subHead)
         NSLayoutConstraint.activate([
-            subHead.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0),
+            subHead.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24),
             subHead.topAnchor.constraint(equalTo: welcomeLbl.bottomAnchor, constant: 8)
         ])
     }
@@ -378,7 +373,7 @@ class SignInViewController: UIViewController {
         signInView.addSubview(emaillbl)
         NSLayoutConstraint.activate([
             emaillbl.topAnchor.constraint(equalTo: subHead.bottomAnchor, constant: 24),
-            emaillbl.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0)
+            emaillbl.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24)
             
         ])
     }
@@ -387,8 +382,8 @@ class SignInViewController: UIViewController {
         signInView.addSubview(emailTextField)
         NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: emaillbl.bottomAnchor, constant: 6),
-            emailTextField.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0),
-            emailTextField.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: 0),
+            emailTextField.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24),
+            emailTextField.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: -24),
             emailTextField.heightAnchor.constraint(equalToConstant: 48)
             
         ])
@@ -398,7 +393,7 @@ class SignInViewController: UIViewController {
         signInView.addSubview(newPasslbl)
         NSLayoutConstraint.activate([
             newPasslbl.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
-            newPasslbl.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0)
+            newPasslbl.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24)
             
         ])
     }
@@ -407,17 +402,17 @@ class SignInViewController: UIViewController {
         signInView.addSubview(newPasslblTextField)
         NSLayoutConstraint.activate([
             newPasslblTextField.topAnchor.constraint(equalTo: newPasslbl.bottomAnchor, constant: 6),
-            newPasslblTextField.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0),
-            newPasslblTextField.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: 0),
+            newPasslblTextField.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24),
+            newPasslblTextField.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: -24),
             newPasslblTextField.heightAnchor.constraint(equalToConstant: 48)
             
         ])
     }
     
     private func setUpNewPassPreview(){
-        newPasslblTextField.addSubview(passPreviewBtn)
+        signInView.addSubview(passPreviewBtn)
         NSLayoutConstraint.activate([
-            passPreviewBtn.trailingAnchor.constraint(equalTo: newPasslblTextField.trailingAnchor, constant: -16),
+            passPreviewBtn.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: -40),
             passPreviewBtn.centerYAnchor.constraint(equalTo: newPasslblTextField.centerYAnchor),
             passPreviewBtn.widthAnchor.constraint(equalToConstant: 24),
             passPreviewBtn.heightAnchor.constraint(equalToConstant: 24),
@@ -428,7 +423,7 @@ class SignInViewController: UIViewController {
         signInView.addSubview(forgotPassBtn)
         NSLayoutConstraint.activate([
             forgotPassBtn.topAnchor.constraint(equalTo: newPasslblTextField.bottomAnchor, constant: 16),
-            forgotPassBtn.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0)
+            forgotPassBtn.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24)
         ])
     }
     
@@ -436,8 +431,8 @@ class SignInViewController: UIViewController {
         signInView.addSubview(loginButton)
         NSLayoutConstraint.activate([
             loginButton.topAnchor.constraint(equalTo: forgotPassBtn.bottomAnchor, constant: 24),
-            loginButton.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0),
-            loginButton.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: 0),
+            loginButton.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24),
+            loginButton.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: -24),
             loginButton.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
@@ -453,40 +448,32 @@ class SignInViewController: UIViewController {
     
     private func setUpOrWithLbl(){
         signInView.addSubview(orWithLbl)
-        NSLayoutConstraint.activate([
-          //  orWithLbl.leadingAnchor.constraint(equalTo: leftLineView.trailingAnchor, constant: 7),
-            orWithLbl.topAnchor.constraint(equalTo: labelButtonStack.bottomAnchor, constant: 26),
-            orWithLbl.centerXAnchor.constraint(equalTo: labelButtonStack.centerXAnchor)
-        ])
-    }
-    
-    private func setUpleftLineView(){
         signInView.addSubview(leftLineView)
+        signInView.addSubview(rightLineView)
+        
         NSLayoutConstraint.activate([
+            orWithLbl.topAnchor.constraint(equalTo: labelButtonStack.bottomAnchor, constant: 26),
+            orWithLbl.centerXAnchor.constraint(equalTo: labelButtonStack.centerXAnchor),
+            
             leftLineView.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0),
             leftLineView.centerYAnchor.constraint(equalTo: orWithLbl.centerYAnchor),
-            leftLineView.widthAnchor.constraint(equalToConstant: 158),
-            leftLineView.heightAnchor.constraint(equalToConstant: 1)
-        ])
-    }
-    
-    private func setUpRightLineView(){
-        signInView.addSubview(rightLineView)
-        NSLayoutConstraint.activate([
-         //   rightLineView.leadingAnchor.constraint(equalTo: orWithLbl.trailingAnchor, constant: 7),
+            leftLineView.trailingAnchor.constraint(equalTo: orWithLbl.leadingAnchor, constant: -7),
+            leftLineView.heightAnchor.constraint(equalToConstant: 1),
+            
             rightLineView.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: 0),
             rightLineView.centerYAnchor.constraint(equalTo: orWithLbl.centerYAnchor),
-            rightLineView.widthAnchor.constraint(equalToConstant: 158),
+            rightLineView.leadingAnchor.constraint(equalTo: orWithLbl.trailingAnchor, constant: 7),
             rightLineView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
+
     
     private func setUpGoogleView(){
         signInView.addSubview(googleView)
         NSLayoutConstraint.activate([
             googleView.topAnchor.constraint(equalTo: orWithLbl.bottomAnchor, constant: 24),
-            googleView.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0),
-            googleView.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: 0),
+            googleView.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24),
+            googleView.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: -24),
             googleView.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
@@ -503,43 +490,32 @@ class SignInViewController: UIViewController {
     
     private func setUpGoogleSubView(){
         googleView.addSubview(googleSubView)
+        googleSubView.addSubview(googleImage)
+        googleSubView.addSubview(signInWithGooglelbl)
         NSLayoutConstraint.activate([
             googleSubView.centerXAnchor.constraint(equalTo: googleView.centerXAnchor),
             googleSubView.centerYAnchor.constraint(equalTo: googleView.centerYAnchor),
-            googleSubView.widthAnchor.constraint(equalToConstant: 156),
-            googleSubView.heightAnchor.constraint(equalToConstant: 48)
-
-        ])
-    }
-    
-    
-    private func setUpGoogleImage(){
-        googleSubView.addSubview(googleImage)
-        NSLayoutConstraint.activate([
+            googleSubView.heightAnchor.constraint(equalToConstant: 48),
+            
             googleImage.centerYAnchor.constraint(equalTo: googleSubView.centerYAnchor),
             googleImage.leadingAnchor.constraint(equalTo: googleSubView.leadingAnchor, constant: 0),
             googleImage.widthAnchor.constraint(equalToConstant: 16),
-            googleImage.heightAnchor.constraint(equalToConstant: 16)
-        ])
-    }
-    
-    private func setUpSignInWithGooglelbl(){
-        googleSubView.addSubview(signInWithGooglelbl)
-        NSLayoutConstraint.activate([
+            googleImage.heightAnchor.constraint(equalToConstant: 16),
+            
             signInWithGooglelbl.leadingAnchor.constraint(equalTo: googleImage.trailingAnchor, constant: 16),
-            signInWithGooglelbl.centerYAnchor.constraint(equalTo: googleImage.centerYAnchor)
+            signInWithGooglelbl.centerYAnchor.constraint(equalTo: googleImage.centerYAnchor),
+            signInWithGooglelbl.trailingAnchor.constraint(equalTo: googleSubView.trailingAnchor, constant: 0),
+
         ])
     }
-
-    
     
     
     private func setUpAppleView(){
         signInView.addSubview(appleView)
         NSLayoutConstraint.activate([
             appleView.topAnchor.constraint(equalTo: googleView.bottomAnchor, constant: 8),
-            appleView.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 0),
-            appleView.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: 0),
+            appleView.leadingAnchor.constraint(equalTo: signInView.leadingAnchor, constant: 24),
+            appleView.trailingAnchor.constraint(equalTo: signInView.trailingAnchor, constant: -24),
             appleView.bottomAnchor.constraint(equalTo: signInView.bottomAnchor, constant: 0),
             appleView.heightAnchor.constraint(equalToConstant: 48),
            
@@ -559,35 +535,25 @@ class SignInViewController: UIViewController {
     
     private func setUpAppleSubView(){
         appleView.addSubview(appleSubView)
+        appleSubView.addSubview(appleImage)
+        appleSubView.addSubview(signInWithApplelbl)
         NSLayoutConstraint.activate([
             appleSubView.centerXAnchor.constraint(equalTo: appleView.centerXAnchor),
             appleSubView.centerYAnchor.constraint(equalTo: appleView.centerYAnchor),
-            appleSubView.widthAnchor.constraint(equalToConstant: 156),
-            appleSubView.heightAnchor.constraint(equalToConstant: 48)
-
-        ])
-    }
-    
-    
-    private func setUpAppleImage(){
-        appleSubView.addSubview(appleImage)
-        NSLayoutConstraint.activate([
+            appleSubView.heightAnchor.constraint(equalToConstant: 48),
+            
             appleImage.centerYAnchor.constraint(equalTo: appleSubView.centerYAnchor),
             appleImage.leadingAnchor.constraint(equalTo: appleSubView.leadingAnchor, constant: 0),
             appleImage.widthAnchor.constraint(equalToConstant: 16),
-            appleImage.heightAnchor.constraint(equalToConstant: 16)
-        ])
-    }
-    
-    private func setUpSignInWithApplelbl(){
-        appleSubView.addSubview(signInWithApplelbl)
-        NSLayoutConstraint.activate([
+            appleImage.heightAnchor.constraint(equalToConstant: 16),
+            
             signInWithApplelbl.leadingAnchor.constraint(equalTo: appleImage.trailingAnchor, constant: 16),
             signInWithApplelbl.centerYAnchor.constraint(equalTo: appleImage.centerYAnchor),
-            
+            signInWithApplelbl.trailingAnchor.constraint(equalTo: appleSubView.trailingAnchor, constant: 0),
+
         ])
     }
-
+   
 }
 
 

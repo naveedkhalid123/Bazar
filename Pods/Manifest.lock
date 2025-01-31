@@ -1,5 +1,9 @@
 PODS:
   - DPOTPView (1.5.12)
+  - GoogleMaps (9.3.0):
+    - GoogleMaps/Maps (= 9.3.0)
+  - GoogleMaps/Maps (9.3.0)
+  - GooglePlaces (9.3.0)
   - IQKeyboardManager (6.5.19)
   - PhoneNumberKit (3.8.0):
     - PhoneNumberKit/PhoneNumberKitCore (= 3.8.0)
@@ -12,6 +16,8 @@ PODS:
 
 DEPENDENCIES:
   - DPOTPView
+  - GoogleMaps
+  - GooglePlaces
   - IQKeyboardManager
   - PhoneNumberKit (~> 3.6)
   - SearchTextField
@@ -20,6 +26,8 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - DPOTPView
+    - GoogleMaps
+    - GooglePlaces
     - IQKeyboardManager
     - PhoneNumberKit
     - SearchTextField
@@ -27,11 +35,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DPOTPView: 28d8a0a84a2ff4b1e4a7712065aba1cbb14e2704
+  GoogleMaps: b58e9627004f47043897eeae830c3ef023678f3b
+  GooglePlaces: 310d8c240eb4bf7aaeecec0de71fe75d086dbf4a
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   PhoneNumberKit: ec00ab8cef5342c1dc49fadb99d23fa7e66cf0ef
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
 
-PODFILE CHECKSUM: a2fafae91438838f92386b3b6b67c25867f048b9
+PODFILE CHECKSUM: 800781f529344faa44733ef2ccc13b6b25556981
 
 COCOAPODS: 1.16.2

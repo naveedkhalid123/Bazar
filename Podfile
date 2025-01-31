@@ -9,4 +9,6 @@ target 'Bazar' do
   pod 'PhoneNumberKit', '~> 3.6'
   pod 'IQKeyboardManager'
   pod 'SearchTextField'
+  pod ‘GoogleMaps’
+  pod ‘GooglePlaces’
 end

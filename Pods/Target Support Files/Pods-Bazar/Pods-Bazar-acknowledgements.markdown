@@ -206,6 +206,14 @@ This application makes use of the following third party libraries:
    limitations under the License.
 
 
+## GoogleMaps
+
+Copyright 2024 Google LLC
+
+## GooglePlaces
+
+Copyright 2024 Google LLC
+
 ## IQKeyboardManager
 
 MIT License

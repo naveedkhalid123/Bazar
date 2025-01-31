@@ -30,6 +30,7 @@ enum AssetsColor: String {
     case black
     case grey
     case lightGrey
+    case lineView
 }
 
 extension UIColor {

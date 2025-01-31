@@ -7,6 +7,10 @@
 
 import UIKit
 
+import GoogleMaps
+
+let googleApiKey = "AIzaSyDHun0h8aD8PvcRGLENL_g8zrQc6qKJqTk"
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            let names = UIFont.fontNames(forFamilyName: family)
 //            print("Family: \(family) Font names: \(names)")
 //        }
-//        
+        GMSServices.provideAPIKey(googleApiKey)
+//
         // Override point for customization after application launch.
         return true
     }
