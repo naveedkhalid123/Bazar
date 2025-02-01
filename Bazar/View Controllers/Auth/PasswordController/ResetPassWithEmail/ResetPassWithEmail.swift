@@ -102,7 +102,7 @@ class ResetPassWithEmail: UIViewController {
     private func setUpBackArrow(){
         view.addSubview(backButton)
         NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             backButton.widthAnchor.constraint(equalToConstant: 40),
             backButton.heightAnchor.constraint(equalToConstant: 40),

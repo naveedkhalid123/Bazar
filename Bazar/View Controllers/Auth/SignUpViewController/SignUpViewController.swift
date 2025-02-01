@@ -33,7 +33,6 @@ class SignUpViewController: UIViewController {
     
     private let signUpView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -377,7 +376,6 @@ class SignUpViewController: UIViewController {
         NSLayoutConstraint.activate([
             signUpView.leadingAnchor.constraint(equalTo: scrollContainer.leadingAnchor, constant: 24),
             signUpView.trailingAnchor.constraint(equalTo: scrollContainer.trailingAnchor, constant: -24),
-          //  signUpView.centerXAnchor.constraint(equalTo: scrollContainer.centerXAnchor),
             signUpView.centerYAnchor.constraint(equalTo: scrollContainer.centerYAnchor),
             signUpView.bottomAnchor.constraint(equalTo: scrollContainer.bottomAnchor,constant: -56)
             
@@ -469,7 +467,7 @@ class SignUpViewController: UIViewController {
     private func setUpNewPassPreview(){
         signUpView.addSubview(passPreviewBtn)
         NSLayoutConstraint.activate([
-            passPreviewBtn.trailingAnchor.constraint(equalTo: signUpView.trailingAnchor, constant: -40),
+            passPreviewBtn.trailingAnchor.constraint(equalTo: signUpView.trailingAnchor, constant: -16),
             passPreviewBtn.centerYAnchor.constraint(equalTo: newPasslblTextField.centerYAnchor),
             passPreviewBtn.widthAnchor.constraint(equalToConstant: 24),
             passPreviewBtn.heightAnchor.constraint(equalToConstant: 24),

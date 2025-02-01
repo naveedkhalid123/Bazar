@@ -91,11 +91,14 @@ class YourFavouriteViewController: UIViewController, UITableViewDelegate, UITabl
         ])
     }
     
+ 
     private func setUpbackButton(){
         headerView.addSubview(backButton)
         NSLayoutConstraint.activate([
             backButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
-            backButton.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
+            backButton.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            backButton.widthAnchor.constraint(equalToConstant: 40),
+            backButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     

@@ -31,6 +31,8 @@ enum AssetsColor: String {
     case grey
     case lightGrey
     case lineView
+    case green
+    case red
 }
 
 extension UIColor {
