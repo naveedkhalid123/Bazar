@@ -46,7 +46,9 @@ class DeliveryDateViewController: UIViewController {
     
     private let todayLabel: UILabel = {
         let label = UILabel()
-        label.text = "Today 12 Jan ssdsd"
+        label.text = "Today 12 Jan"
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.textColor = .appColor(.black)
         label.font = .appFont(.openSansBold, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -74,6 +76,8 @@ class DeliveryDateViewController: UIViewController {
     private let tomorrowLabel: UILabel = {
         let label = UILabel()
         label.text = "Tomorrow 12 Jan"
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.textColor = .appColor(.black)
         label.font = .appFont(.openSansBold, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +105,8 @@ class DeliveryDateViewController: UIViewController {
     private let pickDateLabel: UILabel = {
         let label = UILabel()
         label.text = "Pick a date"
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.textColor = .appColor(.black)
         label.font = .appFont(.openSansBold, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -145,6 +151,8 @@ class DeliveryDateViewController: UIViewController {
     private let timeLabel1: UILabel = {
         let label = UILabel()
         label.text = "Between 10PM : 11PM"
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.textColor = .appColor(.black)
         label.font = .appFont(.openSansBold, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -172,6 +180,8 @@ class DeliveryDateViewController: UIViewController {
     private let timeLabel2: UILabel = {
         let label = UILabel()
         label.text = "Between 10PM : 11PM"
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.textColor = .appColor(.black)
         label.font = .appFont(.openSansBold, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -240,11 +250,17 @@ class DeliveryDateViewController: UIViewController {
     }
     
     private func setUpDateStackView() {
+        
         deliveryDateView.addSubview(dateStackView)
+        
         todayView.addSubview(todayViewBtn)
         todayView.addSubview(todayLabel)
+        
         tomorrowView.addSubview(tommorrowViewBtn)
+        tomorrowView.addSubview(tomorrowLabel)
+        
         pickaDateView.addSubview(pickDateViewBtn)
+        pickaDateView.addSubview(pickDateLabel)
 
         NSLayoutConstraint.activate([
             dateStackView.topAnchor.constraint(equalTo: deliveryLbl.bottomAnchor, constant: 16),
@@ -259,20 +275,29 @@ class DeliveryDateViewController: UIViewController {
             
             todayLabel.centerXAnchor.constraint(equalTo: todayView.centerXAnchor),
             todayLabel.centerYAnchor.constraint(equalTo: todayView.centerYAnchor),
-            todayLabel.leadingAnchor.constraint(equalTo: todayView.leadingAnchor, constant: 0),
-            todayLabel.trailingAnchor.constraint(equalTo: todayView.trailingAnchor, constant: 0),
-            todayLabel.topAnchor.constraint(equalTo: todayView.topAnchor, constant: 0),
-            todayLabel.bottomAnchor.constraint(equalTo: todayView.bottomAnchor, constant: 0),
+            todayLabel.leadingAnchor.constraint(equalTo: todayView.leadingAnchor, constant: 10),
+            todayLabel.trailingAnchor.constraint(equalTo: todayView.trailingAnchor, constant: -10),
+
             
             tommorrowViewBtn.topAnchor.constraint(equalTo: tomorrowView.topAnchor, constant: 0),
             tommorrowViewBtn.leadingAnchor.constraint(equalTo: tomorrowView.leadingAnchor, constant: 0),
             tommorrowViewBtn.trailingAnchor.constraint(equalTo: tomorrowView.trailingAnchor, constant: 0),
             tommorrowViewBtn.bottomAnchor.constraint(equalTo: tomorrowView.bottomAnchor, constant: 0),
             
+            tomorrowLabel.centerXAnchor.constraint(equalTo: tomorrowView.centerXAnchor),
+            tomorrowLabel.centerYAnchor.constraint(equalTo: tomorrowView.centerYAnchor),
+            tomorrowLabel.leadingAnchor.constraint(equalTo: tomorrowView.leadingAnchor, constant: 10),
+            tomorrowLabel.trailingAnchor.constraint(equalTo: tomorrowView.trailingAnchor, constant: -10),
+            
             pickDateViewBtn.topAnchor.constraint(equalTo: pickaDateView.topAnchor, constant: 0),
             pickDateViewBtn.leadingAnchor.constraint(equalTo: pickaDateView.leadingAnchor, constant: 0),
             pickDateViewBtn.trailingAnchor.constraint(equalTo: pickaDateView.trailingAnchor, constant: 0),
             pickDateViewBtn.bottomAnchor.constraint(equalTo: pickaDateView.bottomAnchor, constant: 0),
+            
+            pickDateLabel.centerXAnchor.constraint(equalTo: pickaDateView.centerXAnchor),
+            pickDateLabel.centerYAnchor.constraint(equalTo: pickaDateView.centerYAnchor),
+            pickDateLabel.leadingAnchor.constraint(equalTo: pickaDateView.leadingAnchor, constant: 10),
+            pickDateLabel.trailingAnchor.constraint(equalTo: pickaDateView.trailingAnchor, constant: -10),
             
         ])
     }
@@ -282,7 +307,12 @@ class DeliveryDateViewController: UIViewController {
         
         deliveryDateView.addSubview(timeLbl)
         deliveryDateView.addSubview(timeStackView)
+        
         deliveryDateView.addSubview(timeView1Btn)
+        
+        timeView1.addSubview(timeLabel1)
+        timeView2.addSubview(timeLabel2)
+        
         deliveryDateView.addSubview(timeView2Btn)
         
         NSLayoutConstraint.activate([
@@ -299,10 +329,22 @@ class DeliveryDateViewController: UIViewController {
             timeView1Btn.trailingAnchor.constraint(equalTo: timeView1.trailingAnchor, constant: 0),
             timeView1Btn.bottomAnchor.constraint(equalTo: timeView1.bottomAnchor, constant: 0),
             
+            timeLabel1.centerXAnchor.constraint(equalTo: timeView1.centerXAnchor),
+            timeLabel1.centerYAnchor.constraint(equalTo: timeView1.centerYAnchor),
+            timeLabel1.leadingAnchor.constraint(equalTo: timeView1.leadingAnchor, constant: 10),
+            timeLabel1.trailingAnchor.constraint(equalTo: timeView1.trailingAnchor, constant: -10),
+            
+            
             timeView2Btn.topAnchor.constraint(equalTo: timeView2.topAnchor, constant: 0),
             timeView2Btn.leadingAnchor.constraint(equalTo: timeView2.leadingAnchor, constant: 0),
             timeView2Btn.trailingAnchor.constraint(equalTo: timeView2.trailingAnchor, constant: 0),
             timeView2Btn.bottomAnchor.constraint(equalTo: timeView2.bottomAnchor, constant: 0),
+            
+            timeLabel2.centerXAnchor.constraint(equalTo: timeView2.centerXAnchor),
+            timeLabel2.centerYAnchor.constraint(equalTo: timeView2.centerYAnchor),
+            timeLabel2.leadingAnchor.constraint(equalTo: timeView2.leadingAnchor, constant: 10),
+            timeLabel2.trailingAnchor.constraint(equalTo: timeView2.trailingAnchor, constant: -10),
+            
             
         ])
     }

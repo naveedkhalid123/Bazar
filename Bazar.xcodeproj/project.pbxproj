@@ -59,6 +59,12 @@
 		67F4F7172D47598900F3EC57 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F4F7162D47598900F3EC57 /* CategoryController.swift */; };
 		67F4F7192D4759A300F3EC57 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F4F7182D4759A300F3EC57 /* HomeController.swift */; };
 		67F4F71B2D4759BF00F3EC57 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F4F71A2D4759BF00F3EC57 /* TabBarController.swift */; };
+		67FA99B82D509E6200B4C5D1 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99B72D509E6200B4C5D1 /* SearchBarViewController.swift */; };
+		67FA99BB2D50A5A400B4C5D1 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99BA2D50A5A400B4C5D1 /* SearchTableViewCell.swift */; };
+		67FA99BE2D50AAA900B4C5D1 /* EmptyNorificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99BD2D50AAA900B4C5D1 /* EmptyNorificationController.swift */; };
+		67FA99C12D50AD8A00B4C5D1 /* PaymentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99C02D50AD8A00B4C5D1 /* PaymentDetailsController.swift */; };
+		67FA99C42D50B18300B4C5D1 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99C32D50B18300B4C5D1 /* OrderDetailsViewController.swift */; };
+		67FA99C72D50BD6800B4C5D1 /* ConfirmOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99C62D50BD6800B4C5D1 /* ConfirmOrderController.swift */; };
 		67FADAB72D44F42B00470797 /* VerificationCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FADAB62D44F42B00470797 /* VerificationCodeController.swift */; };
 		67FADABB2D450A7800470797 /* SuccessVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FADABA2D450A7800470797 /* SuccessVerification.swift */; };
 		67FE13A32D48A67500046C7C /* TopOfWeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FE13A22D48A67500046C7C /* TopOfWeekCollectionViewCell.swift */; };
@@ -128,6 +134,12 @@
 		67F4F7162D47598900F3EC57 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		67F4F7182D4759A300F3EC57 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		67F4F71A2D4759BF00F3EC57 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		67FA99B72D509E6200B4C5D1 /* SearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
+		67FA99BA2D50A5A400B4C5D1 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		67FA99BD2D50AAA900B4C5D1 /* EmptyNorificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyNorificationController.swift; sourceTree = "<group>"; };
+		67FA99C02D50AD8A00B4C5D1 /* PaymentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailsController.swift; sourceTree = "<group>"; };
+		67FA99C32D50B18300B4C5D1 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
+		67FA99C62D50BD6800B4C5D1 /* ConfirmOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderController.swift; sourceTree = "<group>"; };
 		67FADAB62D44F42B00470797 /* VerificationCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeController.swift; sourceTree = "<group>"; };
 		67FADABA2D450A7800470797 /* SuccessVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessVerification.swift; sourceTree = "<group>"; };
 		67FE13A22D48A67500046C7C /* TopOfWeekCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopOfWeekCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -307,6 +319,7 @@
 		6746890A2D40DC2000BCFB45 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				67FA99B62D509E4800B4C5D1 /* SearchBarViewController */,
 				6758D9CE2D4B558300CEB356 /* ProfileViewController */,
 				6758D9CA2D4B4DFF00CEB356 /* NotificationsScreens */,
 				67C6C1F42D4AA33300C0B529 /* CartAndCheckoutScreens */,
@@ -333,6 +346,7 @@
 		6758D9CA2D4B4DFF00CEB356 /* NotificationsScreens */ = {
 			isa = PBXGroup;
 			children = (
+				67FA99BC2D50AA8600B4C5D1 /* EmptyNorificationController */,
 				67F0CA202D4E28BA00484824 /* NotificationViewController */,
 				6758D9CB2D4B4E1800CEB356 /* PromotionViewController */,
 			);
@@ -470,6 +484,7 @@
 		67C6C1ED2D4A9B0500C0B529 /* OrdersScreen */ = {
 			isa = PBXGroup;
 			children = (
+				67FA99C22D50B16C00B4C5D1 /* OrderDetailsViewController */,
 				67124E702D4B6B5C000A683A /* OrderStatusViewController */,
 				67C6C1EE2D4A9B1C00C0B529 /* OrderOffersViewController */,
 			);
@@ -496,6 +511,8 @@
 		67C6C1F42D4AA33300C0B529 /* CartAndCheckoutScreens */ = {
 			isa = PBXGroup;
 			children = (
+				67FA99C52D50BD5000B4C5D1 /* ConfirmOrderController */,
+				67FA99BF2D50AD7300B4C5D1 /* PaymentDetailsController */,
 				678048A62D4E47E8009222D0 /* DeliveryDateViewController */,
 				67F0CA262D4E331B00484824 /* PaymentViewController */,
 				67C6C1F52D4AA35800C0B529 /* SetLocationViewController */,
@@ -645,6 +662,55 @@
 				67F4F7122D47595300F3EC57 /* ProfileController.swift */,
 			);
 			path = ProfileController;
+			sourceTree = "<group>";
+		};
+		67FA99B62D509E4800B4C5D1 /* SearchBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67FA99B92D50A58700B4C5D1 /* SearchTableViewCell */,
+				67FA99B72D509E6200B4C5D1 /* SearchBarViewController.swift */,
+			);
+			path = SearchBarViewController;
+			sourceTree = "<group>";
+		};
+		67FA99B92D50A58700B4C5D1 /* SearchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				67FA99BA2D50A5A400B4C5D1 /* SearchTableViewCell.swift */,
+			);
+			path = SearchTableViewCell;
+			sourceTree = "<group>";
+		};
+		67FA99BC2D50AA8600B4C5D1 /* EmptyNorificationController */ = {
+			isa = PBXGroup;
+			children = (
+				67FA99BD2D50AAA900B4C5D1 /* EmptyNorificationController.swift */,
+			);
+			path = EmptyNorificationController;
+			sourceTree = "<group>";
+		};
+		67FA99BF2D50AD7300B4C5D1 /* PaymentDetailsController */ = {
+			isa = PBXGroup;
+			children = (
+				67FA99C02D50AD8A00B4C5D1 /* PaymentDetailsController.swift */,
+			);
+			path = PaymentDetailsController;
+			sourceTree = "<group>";
+		};
+		67FA99C22D50B16C00B4C5D1 /* OrderDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67FA99C32D50B18300B4C5D1 /* OrderDetailsViewController.swift */,
+			);
+			path = OrderDetailsViewController;
+			sourceTree = "<group>";
+		};
+		67FA99C52D50BD5000B4C5D1 /* ConfirmOrderController */ = {
+			isa = PBXGroup;
+			children = (
+				67FA99C62D50BD6800B4C5D1 /* ConfirmOrderController.swift */,
+			);
+			path = ConfirmOrderController;
 			sourceTree = "<group>";
 		};
 		67FADAB52D44F41800470797 /* VerificationCodeController */ = {
@@ -882,7 +948,9 @@
 				67124E752D4B8BF3000A683A /* HelpCenterViewController.swift in Sources */,
 				674688FA2D40DB5600BCFB45 /* OnbordingViewController.swift in Sources */,
 				67D4F9702D43FEEE00653F5A /* ResetPassWithPhone.swift in Sources */,
+				67FA99C12D50AD8A00B4C5D1 /* PaymentDetailsController.swift in Sources */,
 				67FE13B82D4901D600046C7C /* AuthorDetailsTableViewCell.swift in Sources */,
+				67FA99C72D50BD6800B4C5D1 /* ConfirmOrderController.swift in Sources */,
 				67FE13A32D48A67500046C7C /* TopOfWeekCollectionViewCell.swift in Sources */,
 				67FADAB72D44F42B00470797 /* VerificationCodeController.swift in Sources */,
 				67BB20072D4CD2E800B2D0CE /* SaveAddressCollectionViewCell.swift in Sources */,
@@ -908,6 +976,8 @@
 				67F4F7192D4759A300F3EC57 /* HomeController.swift in Sources */,
 				67F4F7152D47596D00F3EC57 /* CartController.swift in Sources */,
 				67885F052D4BED5A00ED42C7 /* YourFavouriteViewController.swift in Sources */,
+				67FA99B82D509E6200B4C5D1 /* SearchBarViewController.swift in Sources */,
+				67FA99C42D50B18300B4C5D1 /* OrderDetailsViewController.swift in Sources */,
 				67124E722D4B6B7A000A683A /* OrderStatusViewController.swift in Sources */,
 				67F4F7132D47595300F3EC57 /* ProfileController.swift in Sources */,
 				67FE13AF2D48EB6200046C7C /* VendorsLblCollectionViewCell.swift in Sources */,
@@ -920,12 +990,14 @@
 				67BB200D2D4CDE1B00B2D0CE /* OrderHistoryTabelViewCell.swift in Sources */,
 				67FADABB2D450A7800470797 /* SuccessVerification.swift in Sources */,
 				67FE13AC2D48D16300046C7C /* VendorViewController.swift in Sources */,
+				67FA99BB2D50A5A400B4C5D1 /* SearchTableViewCell.swift in Sources */,
 				67D4F96A2D43F4D400653F5A /* ForgotPasswordController.swift in Sources */,
 				67885F022D4BE70900ED42C7 /* ProfileTableViewCell.swift in Sources */,
 				67C6C1F02D4A9B3500C0B529 /* OrderOffersViewController.swift in Sources */,
 				67FE13A92D48BA2300046C7C /* AuthorsCollectionViewCell.swift in Sources */,
 				674688F62D40DB5600BCFB45 /* AppDelegate.swift in Sources */,
 				67FE13B52D48FE4900046C7C /* AuthorViewController.swift in Sources */,
+				67FA99BE2D50AAA900B4C5D1 /* EmptyNorificationController.swift in Sources */,
 				674688F82D40DB5600BCFB45 /* SceneDelegate.swift in Sources */,
 				67F0CA2B2D4E36DD00484824 /* PaymentTabelViewCell.swift in Sources */,
 				673C61A02D40F633008AFA7B /* Extensions.swift in Sources */,
