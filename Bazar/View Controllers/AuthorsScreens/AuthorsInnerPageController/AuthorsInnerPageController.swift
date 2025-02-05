@@ -173,6 +173,7 @@ class AuthorsInnerPageController: UIViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
         setUp()
     }
     
@@ -337,6 +338,10 @@ class AuthorsInnerPageController: UIViewController, UICollectionViewDelegate, UI
         let padding: CGFloat = 11
         let width = (collectionView.frame.width - padding * 3) / 2
         return CGSize(width: width, height: 216)
+    }
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
     }
     
 }

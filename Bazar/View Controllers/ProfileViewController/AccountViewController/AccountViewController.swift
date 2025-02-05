@@ -264,7 +264,7 @@ class AccountViewController: UIViewController {
     private let saveButtonButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.appColor(.purple)
-        button.setTitle("Save Button", for: .normal)
+        button.setTitle("Save Changes", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.appFont(.openSansBold, size: 16)
         button.layer.cornerRadius = 16
@@ -275,6 +275,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
         setUp()
     }
     
@@ -518,5 +519,10 @@ class AccountViewController: UIViewController {
             saveButtonButton.bottomAnchor.constraint(equalTo: scrollContainer.bottomAnchor, constant: 0),
             saveButtonButton.heightAnchor.constraint(equalToConstant: 48)
         ])
+    }
+    
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -40,12 +40,41 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         return label
     }()
     
+    
+    //  cart view 
+    
+    private let cartView: UIView = {
+        let view = UIView()
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let cartImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "notificationImg")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+
+    private let productLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "There is no notifications"
+        label.font = .appFont(.RobotoMedium, size: 18)
+        label.textColor = .appColor(.black)
+        return label
+    }()
+    
+    
     private let notificationTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(NotificationTableViewCell.self, forCellReuseIdentifier: "NotificationTableViewCell")
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
-        tableView.allowsSelection = false
+       // tableView.isHidden = true
+        tableView.allowsSelection = true
         tableView.showsVerticalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -54,6 +83,9 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        
         notificationTableView.delegate = self
         notificationTableView.dataSource = self
         setUp()
@@ -61,6 +93,13 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     
     private func setUp(){
         setUpHeaderView()
+        
+        // Cart View
+        setUpCartView()
+        setUpCartImage()
+        setUpProductLabel()
+        
+        // Notification Table view
         setUpNotificationTableView()
     }
     
@@ -86,6 +125,38 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         ])
     }
     
+    
+    
+    
+    // Cart View
+    
+    private func setUpCartView() {
+        view.addSubview(cartView)
+        NSLayoutConstraint.activate([
+            cartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 97),
+            cartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -97),
+            cartView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            cartView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+
+    private func setUpCartImage(){
+        cartView.addSubview(cartImage)
+        NSLayoutConstraint.activate([
+            cartImage.topAnchor.constraint(equalTo: cartView.topAnchor, constant: 0),
+            cartImage.centerXAnchor.constraint(equalTo: cartView.centerXAnchor),
+        ])
+    }
+    
+    private func setUpProductLabel(){
+        cartView.addSubview(productLabel)
+        NSLayoutConstraint.activate([
+            productLabel.topAnchor.constraint(equalTo: cartImage.bottomAnchor, constant: 24),
+            productLabel.centerXAnchor.constraint(equalTo: cartImage.centerXAnchor),
+            productLabel.bottomAnchor.constraint(equalTo: cartView.bottomAnchor, constant: 0)
+        ])
+    }
+    
     private func setUpNotificationTableView(){
         view.addSubview(notificationTableView)
         NSLayoutConstraint.activate([
@@ -96,6 +167,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
             notificationTableView.heightAnchor.constraint(equalToConstant: 600)
         ])
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notificationArr.count
@@ -110,12 +182,30 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         let message = notification["message"] ?? ""
         
         cell.configure(title: title, date: date, message: message)
+        cell.selectionStyle = .none
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.selectionStyle = .none
+        }
+    
+        let authorsInnerPageVC = PromotionViewController()
+        self.navigationController?.pushViewController(authorsInnerPageVC, animated: true)
+    }
+    
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
     }
 
     

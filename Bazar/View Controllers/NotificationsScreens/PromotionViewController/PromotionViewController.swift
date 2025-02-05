@@ -97,6 +97,8 @@ class PromotionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        
         setUp()
     }
     
@@ -193,5 +195,9 @@ class PromotionViewController: UIViewController {
             promotionSubHeadLbl.trailingAnchor.constraint(equalTo: scrollContainer.trailingAnchor, constant: -24),
             promotionSubHeadLbl.bottomAnchor.constraint(equalTo: scrollContainer.bottomAnchor, constant: 0)
         ])
+    }
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
     }
 }

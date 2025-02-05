@@ -80,11 +80,15 @@ class OrderHistoryViewController: UIViewController, UITableViewDelegate, UITable
 
         view.backgroundColor = .white
         
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        
         orderHistoryTableView.delegate = self
         orderHistoryTableView.dataSource = self
         orderHistoryTableView.layer.borderColor = UIColor.appColor(.lineView)?.cgColor
         orderHistoryTableView.layer.borderWidth = 1.0
         orderHistoryTableView.layer.cornerRadius = 8.0
+        
+        
         
         setUp()
     }
@@ -178,6 +182,10 @@ class OrderHistoryViewController: UIViewController, UITableViewDelegate, UITable
         return 80
     }
 
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 

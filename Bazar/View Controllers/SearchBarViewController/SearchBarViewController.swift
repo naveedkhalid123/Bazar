@@ -9,6 +9,8 @@ import UIKit
 
 class SearchBarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var headingArr = ["Recent Searches"]
+    
     private let headerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +25,6 @@ class SearchBarViewController: UIViewController, UITableViewDelegate, UITableVie
         return button
     }()
     
-    
     private let searchLbl: UILabel = {
         let label = UILabel()
         label.text = "Search"
@@ -32,8 +33,7 @@ class SearchBarViewController: UIViewController, UITableViewDelegate, UITableVie
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-   
-
+    
     private let searchBarView: UIView = {
         let view = UIView()
         view.backgroundColor = .appColor(.lightGrey)
@@ -51,46 +51,40 @@ class SearchBarViewController: UIViewController, UITableViewDelegate, UITableVie
         imageView.image = UIImage(named: "greySearch")
         return imageView
     }()
-
+    
     private let SearchTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Search"
-        
         textField.backgroundColor = UIColor.appColor(.lightGrey)
-        
         textField.textColor = UIColor.appColor(.grey)
         textField.font = UIFont.appFont(.robotoRegular, size: 16)
         textField.textAlignment = .left
         textField.clearButtonMode = .whileEditing
-    
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
-        
         return textField
     }()
-
     
     var searchArr = ["The Good Sister","Carries Fisher"]
     
     private let searchTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
-        tableView.separatorStyle = .singleLine
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25) 
+        tableView.separatorStyle = .none
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         tableView.showsVerticalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
         
         view.backgroundColor = .white
         searchTableView.delegate = self
@@ -99,12 +93,9 @@ class SearchBarViewController: UIViewController, UITableViewDelegate, UITableVie
         setUp()
     }
     
-    private func setUp(){
-        
+    private func setUp() {
         setUpHeaderView()
-        
         setUpSearchBarView()
-        
         setUpFavouritesTableView()
     }
     
@@ -129,12 +120,10 @@ class SearchBarViewController: UIViewController, UITableViewDelegate, UITableVie
         ])
     }
     
-    private func setUpSearchBarView(){
-        
+    private func setUpSearchBarView() {
         view.addSubview(searchBarView)
         searchBarView.addSubview(SearchImageView)
         searchBarView.addSubview(SearchTextField)
-        
         
         NSLayoutConstraint.activate([
             searchBarView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 24),
@@ -151,11 +140,10 @@ class SearchBarViewController: UIViewController, UITableViewDelegate, UITableVie
             SearchTextField.trailingAnchor.constraint(equalTo: searchBarView.trailingAnchor, constant: -16),
             SearchTextField.centerYAnchor.constraint(equalTo: SearchImageView.centerYAnchor),
             SearchTextField.heightAnchor.constraint(equalToConstant: 24)
-            
         ])
     }
-  
-    private func setUpFavouritesTableView(){
+    
+    private func setUpFavouritesTableView() {
         view.addSubview(searchTableView)
         NSLayoutConstraint.activate([
             searchTableView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 16),
@@ -166,19 +154,64 @@ class SearchBarViewController: UIViewController, UITableViewDelegate, UITableVie
         ])
     }
     
-    @objc func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchArr.count
+    // Table View Delegate and Data Source Methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return headingArr.count
     }
     
-    @objc(tableView:cellForRowAtIndexPath:) func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
-        cell.searchLabel.text = searchArr[indexPath.row]
-        return cell
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return searchArr.count
+        }
+        return 0
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dataArray: [String]
+        
+        switch indexPath.section {
+        case 0:
+            dataArray = searchArr
+        default:
+            return UITableViewCell()
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+        cell.searchLabel.text = dataArray[indexPath.row]
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
+    // Header Section for Table View
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
+        
+        let label = UILabel()
+        label.text = headingArr[section]
+        label.frame = CGRect(x: 24, y: 0, width: headerView.frame.width - 10, height: headerView.frame.height - 10)
+        label.font = .appFont(.openSansBold, size: 16)
+        label.textColor = .appColor(.black)
+        
+        headerView.addSubview(label)
+        
+        return headerView
+    }
+        
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    
+    @objc func backBtnPressed(){
+        let backVC = TabBarController()
+        navigationController?.popViewController(animated: true)
+    }
 }

@@ -10,6 +10,7 @@
 		022089FDDC60604B2634145B /* Pods_Bazar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F10F8A3C2430506DF8424D /* Pods_Bazar.framework */; };
 		67124E722D4B6B7A000A683A /* OrderStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67124E712D4B6B7A000A683A /* OrderStatusViewController.swift */; };
 		67124E752D4B8BF3000A683A /* HelpCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67124E742D4B8BF3000A683A /* HelpCenterViewController.swift */; };
+		672EF74F2D51FB8F009E79CC /* OrderDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672EF74E2D51FB8F009E79CC /* OrderDetailsTableViewCell.swift */; };
 		673C618D2D40E39A008AFA7B /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 673C618C2D40E39A008AFA7B /* OpenSans-Bold.ttf */; };
 		673C618F2D40E3AB008AFA7B /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 673C618E2D40E3AB008AFA7B /* Roboto-BoldItalic.ttf */; };
 		673C61912D40E3B5008AFA7B /* Roboto-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 673C61902D40E3B5008AFA7B /* Roboto-Condensed.ttf */; };
@@ -65,6 +66,7 @@
 		67FA99C12D50AD8A00B4C5D1 /* PaymentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99C02D50AD8A00B4C5D1 /* PaymentDetailsController.swift */; };
 		67FA99C42D50B18300B4C5D1 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99C32D50B18300B4C5D1 /* OrderDetailsViewController.swift */; };
 		67FA99C72D50BD6800B4C5D1 /* ConfirmOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99C62D50BD6800B4C5D1 /* ConfirmOrderController.swift */; };
+		67FA99CA2D512F6D00B4C5D1 /* PaymentDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA99C92D512F6D00B4C5D1 /* PaymentDetailsCell.swift */; };
 		67FADAB72D44F42B00470797 /* VerificationCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FADAB62D44F42B00470797 /* VerificationCodeController.swift */; };
 		67FADABB2D450A7800470797 /* SuccessVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FADABA2D450A7800470797 /* SuccessVerification.swift */; };
 		67FE13A32D48A67500046C7C /* TopOfWeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FE13A22D48A67500046C7C /* TopOfWeekCollectionViewCell.swift */; };
@@ -82,6 +84,7 @@
 		3D103C6B0776DC278B541A9F /* Pods-Bazar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bazar.release.xcconfig"; path = "Target Support Files/Pods-Bazar/Pods-Bazar.release.xcconfig"; sourceTree = "<group>"; };
 		67124E712D4B6B7A000A683A /* OrderStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusViewController.swift; sourceTree = "<group>"; };
 		67124E742D4B8BF3000A683A /* HelpCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCenterViewController.swift; sourceTree = "<group>"; };
+		672EF74E2D51FB8F009E79CC /* OrderDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		673C618C2D40E39A008AFA7B /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		673C618E2D40E3AB008AFA7B /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		673C61902D40E3B5008AFA7B /* Roboto-Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Condensed.ttf"; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		67FA99C02D50AD8A00B4C5D1 /* PaymentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailsController.swift; sourceTree = "<group>"; };
 		67FA99C32D50B18300B4C5D1 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		67FA99C62D50BD6800B4C5D1 /* ConfirmOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderController.swift; sourceTree = "<group>"; };
+		67FA99C92D512F6D00B4C5D1 /* PaymentDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailsCell.swift; sourceTree = "<group>"; };
 		67FADAB62D44F42B00470797 /* VerificationCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeController.swift; sourceTree = "<group>"; };
 		67FADABA2D450A7800470797 /* SuccessVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessVerification.swift; sourceTree = "<group>"; };
 		67FE13A22D48A67500046C7C /* TopOfWeekCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopOfWeekCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -188,6 +192,14 @@
 				67124E742D4B8BF3000A683A /* HelpCenterViewController.swift */,
 			);
 			path = HelpCenterViewController;
+			sourceTree = "<group>";
+		};
+		672EF74D2D51FB6E009E79CC /* OrderDetailsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				672EF74E2D51FB8F009E79CC /* OrderDetailsTableViewCell.swift */,
+			);
+			path = OrderDetailsTableViewCell;
 			sourceTree = "<group>";
 		};
 		673C618B2D40E37E008AFA7B /* Fonts */ = {
@@ -692,6 +704,7 @@
 		67FA99BF2D50AD7300B4C5D1 /* PaymentDetailsController */ = {
 			isa = PBXGroup;
 			children = (
+				67FA99C82D512F4F00B4C5D1 /* PaymentDetailsCell */,
 				67FA99C02D50AD8A00B4C5D1 /* PaymentDetailsController.swift */,
 			);
 			path = PaymentDetailsController;
@@ -700,6 +713,7 @@
 		67FA99C22D50B16C00B4C5D1 /* OrderDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				672EF74D2D51FB6E009E79CC /* OrderDetailsTableViewCell */,
 				67FA99C32D50B18300B4C5D1 /* OrderDetailsViewController.swift */,
 			);
 			path = OrderDetailsViewController;
@@ -711,6 +725,14 @@
 				67FA99C62D50BD6800B4C5D1 /* ConfirmOrderController.swift */,
 			);
 			path = ConfirmOrderController;
+			sourceTree = "<group>";
+		};
+		67FA99C82D512F4F00B4C5D1 /* PaymentDetailsCell */ = {
+			isa = PBXGroup;
+			children = (
+				67FA99C92D512F6D00B4C5D1 /* PaymentDetailsCell.swift */,
+			);
+			path = PaymentDetailsCell;
 			sourceTree = "<group>";
 		};
 		67FADAB52D44F41800470797 /* VerificationCodeController */ = {
@@ -989,6 +1011,7 @@
 				67F0CA252D4E2C9400484824 /* NotificationTableViewCell.swift in Sources */,
 				67BB200D2D4CDE1B00B2D0CE /* OrderHistoryTabelViewCell.swift in Sources */,
 				67FADABB2D450A7800470797 /* SuccessVerification.swift in Sources */,
+				67FA99CA2D512F6D00B4C5D1 /* PaymentDetailsCell.swift in Sources */,
 				67FE13AC2D48D16300046C7C /* VendorViewController.swift in Sources */,
 				67FA99BB2D50A5A400B4C5D1 /* SearchTableViewCell.swift in Sources */,
 				67D4F96A2D43F4D400653F5A /* ForgotPasswordController.swift in Sources */,
@@ -999,6 +1022,7 @@
 				67FE13B52D48FE4900046C7C /* AuthorViewController.swift in Sources */,
 				67FA99BE2D50AAA900B4C5D1 /* EmptyNorificationController.swift in Sources */,
 				674688F82D40DB5600BCFB45 /* SceneDelegate.swift in Sources */,
+				672EF74F2D51FB8F009E79CC /* OrderDetailsTableViewCell.swift in Sources */,
 				67F0CA2B2D4E36DD00484824 /* PaymentTabelViewCell.swift in Sources */,
 				673C61A02D40F633008AFA7B /* Extensions.swift in Sources */,
 			);

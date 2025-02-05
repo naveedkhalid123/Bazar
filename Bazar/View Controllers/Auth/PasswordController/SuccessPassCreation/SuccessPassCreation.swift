@@ -59,6 +59,7 @@ class SuccessPassCreation: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        loginButton.addTarget(self, action: #selector(loginBtnPressed), for: .touchUpInside)
         setUp()
         
     }
@@ -120,5 +121,11 @@ class SuccessPassCreation: UIViewController {
         ])
     }
 
+    
+    @objc func loginBtnPressed(){
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
 
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConfirmOrderController: UIViewController {
+class ConfirmOrderController: UIViewController, UIAdaptivePresentationControllerDelegate {
     
     private let headerView: UIView = {
         let view = UIView()
@@ -365,9 +365,13 @@ class ConfirmOrderController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        notificationButton.addTarget(self, action: #selector(notifyBtnPressed), for: .touchUpInside)
         seeDetailsButton.addTarget(self, action: #selector(seeDetailsButtonTapped), for: .touchUpInside)
         selectDateBtn.addTarget(self, action: #selector(selectDateBtnTapped), for: .touchUpInside)
         selectPaymnetBtn.addTarget(self, action: #selector(selectPaymentTapped), for: .touchUpInside)
+        orderButton.addTarget(self, action: #selector(orderBtnPressed), for: .touchUpInside)
         
         setUp()
     }
@@ -645,17 +649,78 @@ class ConfirmOrderController: UIViewController {
         ])
     }
     
+    // MARK: - Blur Effect
+    func addBlurEffect() {
+        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.tag = 10
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.alpha = 0.3
+        self.view.addSubview(blurEffectView)
+    }
+    
+    func removeBlurEffect() {
+        if let blurEffectView = self.view.viewWithTag(10) {
+            blurEffectView.removeFromSuperview()
+        }
+    }
+    
+    
+    
+    @objc private func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @objc func notifyBtnPressed(){
+        let notifyVC = NotificationViewController()
+        navigationController?.pushViewController(notifyVC, animated: true)
+    }
     
     @objc private func seeDetailsButtonTapped() {
-        print("See Details button tapped!")
+        
+        self.addBlurEffect()
+        let vc = PaymentDetailsController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.presentationController?.delegate = self
+        vc.dismissHandler = { [weak self] in
+            self?.removeBlurEffect()
+        }
+        self.present(vc, animated: true)
     }
     
     @objc private func selectDateBtnTapped() {
-        print("Select Date button tapped!")
+        
+        self.addBlurEffect()
+        let vc = DeliveryDateViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.presentationController?.delegate = self
+        vc.dismissHandler = { [weak self] in
+            self?.removeBlurEffect()
+        }
+        self.present(vc, animated: true)
     }
     
     @objc private func selectPaymentTapped() {
-        print("Select Date button tapped!")
+        
+        self.addBlurEffect()
+        let vc = PaymentViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.presentationController?.delegate = self
+        vc.dismissHandler = { [weak self] in
+            self?.removeBlurEffect()
+        }
+        self.present(vc, animated: true)
+    }
+    
+    @objc func orderBtnPressed(){
+        let orderVC = AddressViewController()
+        orderVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(orderVC, animated: true)
     }
 
 }

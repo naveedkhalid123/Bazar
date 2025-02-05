@@ -31,9 +31,9 @@ class SearchTableViewCell: UITableViewCell {
     private func setupViews() {
         contentView.addSubview(searchLabel)
         NSLayoutConstraint.activate([
-            searchLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
+            searchLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 27),
             searchLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            searchLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -25),
+           // searchLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -27),
             searchLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }

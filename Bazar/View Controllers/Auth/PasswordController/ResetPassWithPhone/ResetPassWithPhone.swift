@@ -105,6 +105,8 @@ class ResetPassWithPhone: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        sendButton.addTarget(self, action: #selector(sendBtnPressed), for: .touchUpInside)
         setUp()
     }
     
@@ -198,6 +200,14 @@ class ResetPassWithPhone: UIViewController {
             sendButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             sendButton.heightAnchor.constraint(equalToConstant: 48)
         ])
+    }
+    
+    @objc func backBtnPressed() {
+        navigationController?.popViewController(animated: true)
+    }
+    @objc func sendBtnPressed(){
+        let vc = VerificationCodeController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

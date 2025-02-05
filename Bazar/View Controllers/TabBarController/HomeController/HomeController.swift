@@ -234,6 +234,9 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        searchButton.addTarget(self, action: #selector(searchBtnPressed), for: .touchUpInside)
+        notificationButton.addTarget(self, action: #selector(notifyBtnPressed), for: .touchUpInside)
+        
         setUp()
         
         pageControl.numberOfPages = bannerImagesArr.count
@@ -525,6 +528,37 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return CGSize(width: collectionView.frame.width / 2.5, height: 183)
         }
     
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == bannerCollectionView {
+            // Handle bannerCollectionView selection here if needed
+        } else if collectionView == topOfWeekCollectionView {
+            let detailMenuVC = DetailMenuViewController()
+            self.navigationController?.pushViewController(detailMenuVC, animated: true)
+        } else if collectionView ==  topVendorCollectionView {
+            let topVendorVC = VendorViewController()
+            topVendorVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(topVendorVC, animated: true)
+        } else {
+            let topAuthorsVC = AuthorViewController()
+            topAuthorsVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(topAuthorsVC, animated: true)
+        }
+    }
+
+    
+    @objc func searchBtnPressed(){
+        let searchVC = SearchBarViewController()
+        searchVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(searchVC, animated: true)
+    }
+    
+    @objc func notifyBtnPressed(){
+        let notifyVC = NotificationViewController()
+        notifyVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(notifyVC, animated: true)
     }
     
 }

@@ -9,6 +9,18 @@ import UIKit
 
 class DeliveryDateViewController: UIViewController {
     
+    // code for closing ther screen when the popup open , then user will click on the view and pop will close
+        
+    var dismissHandler: (() -> Void)?
+       override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+           var touch: UITouch? = touches.first
+           dismissHandler?()
+           if touch?.view == self.view {
+               self.dismiss(animated: true)
+           }
+           
+       }
+    
     private let deliveryDateView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 32
@@ -218,7 +230,9 @@ class DeliveryDateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        
+        view.backgroundColor = UIColor.appColor(.black)?.withAlphaComponent(0.3)
+        
         setUp()
     }
     

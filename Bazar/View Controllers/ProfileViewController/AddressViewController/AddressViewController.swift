@@ -163,6 +163,10 @@ class AddressViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         locationManager.requestWhenInUseAuthorization()
         
+      //  GPSButton.addTarget(self, action: #selector(GPSBtnPressed), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        confirmationButton.addTarget(self, action: #selector(confirmBtnPressed), for: .touchUpInside)
+        
         setUp()
     }
     
@@ -379,5 +383,15 @@ class AddressViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
 
+    }
+    
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func confirmBtnPressed(){
+        let gpsVC  = SetLocationViewController()
+        navigationController?.pushViewController(gpsVC, animated: true)
     }
 }

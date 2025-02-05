@@ -68,6 +68,8 @@ class YourFavouriteViewController: UIViewController, UITableViewDelegate, UITabl
         favouritesTableView.delegate = self
         favouritesTableView.dataSource = self
         
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        
         setUp()
     }
     
@@ -160,6 +162,10 @@ class YourFavouriteViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
     }
 
     

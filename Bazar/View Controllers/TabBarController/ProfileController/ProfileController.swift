@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate {
 
     
     private let headerView: UIView = {
@@ -103,7 +103,8 @@ class ProfileController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
+        tableView.isUserInteractionEnabled = true
         tableView.showsVerticalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -115,6 +116,8 @@ class ProfileController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         profileTableView.delegate = self
         profileTableView.dataSource = self
+        
+        logoutButton.addTarget(self, action: #selector(logoutBtnPressed), for: .touchUpInside)
 
         setUp()
     }
@@ -257,6 +260,7 @@ class ProfileController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as! ProfileTableViewCell
+        cell.selectionStyle = .none 
         cell.profileImageView.image = UIImage(named: profileArr[indexPath.row]["img"] ?? "")
         cell.profileLabel.text = profileArr[indexPath.row]["lbl"]
         return cell
@@ -266,7 +270,71 @@ class ProfileController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
+    // MARK: - Blur Effect
+    func addBlurEffect() {
+        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.tag = 10
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.alpha = 0.3
+        self.view.addSubview(blurEffectView)
+    }
+    
+    func removeBlurEffect() {
+        if let blurEffectView = self.view.viewWithTag(10) {
+            blurEffectView.removeFromSuperview()
+        }
+    }
 
     
+    // MARK: - Table View Did Select
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            let vc = AccountViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        case 1:
+            let vc = AddressViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            let vc = OrderOffersViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 3:
+            let vc = YourFavouriteViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 4:
+            let vc = OrderHistoryViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 5:
+            let vc = HelpCenterViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
+    }
+
+    
+    @objc func logoutBtnPressed() {
+
+
+        self.addBlurEffect()
+        let vc = LogoutViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.presentationController?.delegate = self
+        vc.dismissHandler = { [weak self] in
+            self?.removeBlurEffect()
+        }
+        self.present(vc, animated: true)
+    }
     
 }

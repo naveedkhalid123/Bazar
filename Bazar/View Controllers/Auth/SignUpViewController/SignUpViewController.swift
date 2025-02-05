@@ -24,12 +24,12 @@ class SignUpViewController: UIViewController {
     }()
     
     
-    private let backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "backArrow"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    private let backButton: UIButton = {
+//        let button = UIButton()
+//        button.setImage(UIImage(named: "backArrow"), for: .normal)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     
     private let signUpView: UIView = {
         let view = UIView()
@@ -196,6 +196,7 @@ class SignUpViewController: UIViewController {
     
     private let passRecommendationView: UIView = {
         let view = UIView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -265,6 +266,7 @@ class SignUpViewController: UIViewController {
         button.setTitleColor(UIColor.appColor(.purple), for: .normal)
         button.titleLabel?.font = UIFont.appFont(.RobotoMedium, size: 16)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(nil, action: #selector(signInButtonTapped), for: .touchUpInside)
     
         let stackView = UIStackView(arrangedSubviews: [label, button])
         stackView.axis = .horizontal
@@ -296,7 +298,9 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         passPreviewBtn.addTarget(self, action: #selector(previewButtonPressed(_:)), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(registrBtnPressed), for: .touchUpInside)
 
         view.backgroundColor = .white
         setUp()
@@ -304,7 +308,7 @@ class SignUpViewController: UIViewController {
     
     private func setUp() {
         setupScrollView()
-        setUpBackArrow()
+       // setUpBackArrow()
         
         setUpSignUpView()
         
@@ -360,16 +364,16 @@ class SignUpViewController: UIViewController {
         ])
     }
     
-    
-    private func setUpBackArrow(){
-        scrollContainer.addSubview(backButton)
-        NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalTo: scrollContainer.leadingAnchor, constant: 16),
-            backButton.topAnchor.constraint(equalTo: scrollContainer.safeAreaLayoutGuide.topAnchor, constant: 0),
-            backButton.widthAnchor.constraint(equalToConstant: 40),
-            backButton.heightAnchor.constraint(equalToConstant: 40),
-        ])
-    }
+//    
+//    private func setUpBackArrow(){
+//        scrollContainer.addSubview(backButton)
+//        NSLayoutConstraint.activate([
+//            backButton.leadingAnchor.constraint(equalTo: scrollContainer.leadingAnchor, constant: 16),
+//            backButton.topAnchor.constraint(equalTo: scrollContainer.safeAreaLayoutGuide.topAnchor, constant: 0),
+//            backButton.widthAnchor.constraint(equalToConstant: 40),
+//            backButton.heightAnchor.constraint(equalToConstant: 40),
+//        ])
+//    }
     
     private func setUpSignUpView(){
         scrollContainer.addSubview(signUpView)
@@ -480,7 +484,7 @@ class SignUpViewController: UIViewController {
             passRecommendationView.topAnchor.constraint(equalTo: newPasslblTextField.bottomAnchor, constant: 16),
             passRecommendationView.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: 0),
             passRecommendationView.trailingAnchor.constraint(equalTo: signUpView.trailingAnchor, constant: 0),
-            passRecommendationView.heightAnchor.constraint(equalToConstant: 76)
+            passRecommendationView.heightAnchor.constraint(equalToConstant: 0)
         ])
     }
     
@@ -579,6 +583,28 @@ class SignUpViewController: UIViewController {
             policySubHead.bottomAnchor.constraint(equalTo: signUpView.bottomAnchor, constant: 0)
         ])
     }
+    
+    
+    
+
+//    
+//    @objc private func backButtonTapped(){
+//        navigationController?.popViewController(animated: true)
+//    }
+    
+    
+    
+    @objc private func registrBtnPressed(){
+        let registerVC = VerificationCodeController()
+        registerVC.isFromRegister = true
+        navigationController?.pushViewController(registerVC, animated: true)
+    }
+
+    @objc private func signInButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
 
 

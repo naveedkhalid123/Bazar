@@ -373,7 +373,7 @@ class AuthorViewController: UIViewController, UICollectionViewDelegate, UICollec
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         tableView.showsVerticalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -384,6 +384,7 @@ class AuthorViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
         setUp()
         
         authorsTableView.delegate = self
@@ -537,6 +538,7 @@ class AuthorViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuthorDetailsTableViewCell", for: indexPath) as! AuthorDetailsTableViewCell
+        cell.selectionStyle = .none
         cell.authorImageView.image = UIImage(named: authorsDetailsArr[indexPath.row]["img"] ?? "")
         cell.authorNameLabel.text = authorsDetailsArr[indexPath.row]["name"]
         cell.authorDescriptionLabel.text = authorsDetailsArr[indexPath.row]["desc"]
@@ -549,10 +551,20 @@ class AuthorViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.selectionStyle = .none
         }
-        
+    
+        let authorsInnerPageVC = AuthorsInnerPageController()
+        self.navigationController?.pushViewController(authorsInnerPageVC, animated: true)
+    }
+
+
+
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
     }
     
 }

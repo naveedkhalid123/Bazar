@@ -385,6 +385,7 @@ class VendorViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
         view.backgroundColor = .white
         setUp()
     }
@@ -548,6 +549,9 @@ class VendorViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
 
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
     
 }
 

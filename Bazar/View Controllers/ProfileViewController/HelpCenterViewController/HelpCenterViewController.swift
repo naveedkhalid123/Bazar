@@ -183,6 +183,7 @@ class HelpCenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
         setUp()
     }
     
@@ -391,6 +392,8 @@ class HelpCenterViewController: UIViewController {
         }
     }
 
-    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
     
 }

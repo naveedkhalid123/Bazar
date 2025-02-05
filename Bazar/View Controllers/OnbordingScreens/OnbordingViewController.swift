@@ -9,6 +9,7 @@ import UIKit
 
 class OnbordingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    private var currentOnboardingPage = 0
 
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -104,8 +105,12 @@ class OnbordingViewController: UIViewController, UICollectionViewDelegate, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        skipButton.addTarget(self, action: #selector(skipBtnPressed), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
+        
         setUp()
-        // For page control
         pageControl.numberOfPages = onBoardingImagesArr.count
     }
     
@@ -250,8 +255,20 @@ class OnbordingViewController: UIViewController, UICollectionViewDelegate, UICol
        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
            let currentPage = Int(scrollView.contentOffset.x / onBoardingCollectionView.bounds.width)
            pageControl.currentPage = currentPage
+           currentOnboardingPage = currentPage
+        
+           self.buttonTitleChange(currentPage)
+           print(currentPage)
 
        }
+    
+    private func buttonTitleChange(_ currentPage: Int) {
+        if currentPage == 2 {
+            continueButton.setTitle("Get Started", for: .normal)
+        }else {
+            continueButton.setTitle("Continue", for: .normal)
+        }
+    }
 
     
     
@@ -273,6 +290,36 @@ class OnbordingViewController: UIViewController, UICollectionViewDelegate, UICol
         return CGSize(width: collectionView.frame.width, height: 482)
     }
 
+    
+    
+    @objc private func skipBtnPressed() {
+        navigateToSignIn()
+    }
+    
+    
+    @objc private func continueButtonTapped() {
+        if currentOnboardingPage == 2 {
+            navigateToSignIn()
+        }else {
+            currentOnboardingPage += 1
+            pageControl.currentPage = currentOnboardingPage
+            self.buttonTitleChange(currentOnboardingPage)
+            onBoardingCollectionView.isPagingEnabled = false
+            onBoardingCollectionView.scrollToItem(at: IndexPath(item: currentOnboardingPage, section: 0), at: .centeredHorizontally, animated: true)
+            onBoardingCollectionView.isPagingEnabled = true
+        }
+    }
 
+    @objc private func signInButtonTapped() {
+        navigateToSignIn()
+    }
+    
+    
+    func navigateToSignIn(){
+        let signInVC = SignInViewController()
+//        let  nav = UINavigationController(rootViewController: signInVC)
+//        nav.isNavigationBarHidden = true
+        navigationController?.pushViewController(signInVC, animated: true)
+    }
 }
 

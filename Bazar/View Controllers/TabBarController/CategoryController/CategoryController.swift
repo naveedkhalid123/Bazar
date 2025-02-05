@@ -103,6 +103,7 @@ class CategoryController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notificationButton.addTarget(self, action: #selector(notifyBtnPressed), for: .touchUpInside)
         view.backgroundColor = .white
         setUp()
     }
@@ -231,6 +232,11 @@ class CategoryController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if collectionView == productsCollectionView {
+            let detailMenuVC = DetailMenuViewController()
+            self.navigationController?.pushViewController(detailMenuVC, animated: true)
+        }
+        
         selectedIndex = indexPath.row
         collectionView.reloadData()
     }
@@ -245,6 +251,12 @@ class CategoryController: UIViewController, UICollectionViewDelegate, UICollecti
             let width = (collectionView.frame.width - padding * 3) / 2
             return CGSize(width: width, height: 216)
         }
+    }
+    
+    @objc func notifyBtnPressed(){
+        let notifyVC = NotificationViewController()
+        notifyVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(notifyVC, animated: true)
     }
     
 }

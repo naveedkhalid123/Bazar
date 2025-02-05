@@ -185,6 +185,8 @@ class SettingNewPass: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        sendButton.addTarget(self, action: #selector(sendBtnPressed), for: .touchUpInside)
         setUp()
     }
     
@@ -255,9 +257,9 @@ class SettingNewPass: UIViewController {
     
     
     private func setUpNewPassPreview(){
-        newPasslblTextField.addSubview(newPassPreviewBtn)
+        view.addSubview(newPassPreviewBtn)
         NSLayoutConstraint.activate([
-            newPassPreviewBtn.trailingAnchor.constraint(equalTo: newPasslblTextField.trailingAnchor, constant: -16),
+            newPassPreviewBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             newPassPreviewBtn.centerYAnchor.constraint(equalTo: newPasslblTextField.centerYAnchor),
             newPassPreviewBtn.widthAnchor.constraint(equalToConstant: 24),
             newPassPreviewBtn.heightAnchor.constraint(equalToConstant: 24),
@@ -290,9 +292,9 @@ class SettingNewPass: UIViewController {
     
     
     private func setUpConfirmPassPreviewBtn(){
-        confirmPasslblTextField.addSubview(confirmPassPreviewBtn)
+        view.addSubview(confirmPassPreviewBtn)
         NSLayoutConstraint.activate([
-            confirmPassPreviewBtn.trailingAnchor.constraint(equalTo: confirmPasslblTextField.trailingAnchor, constant: -16),
+            confirmPassPreviewBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             confirmPassPreviewBtn.centerYAnchor.constraint(equalTo: confirmPasslblTextField.centerYAnchor),
             confirmPassPreviewBtn.widthAnchor.constraint(equalToConstant: 24),
             confirmPassPreviewBtn.heightAnchor.constraint(equalToConstant: 24),
@@ -317,6 +319,15 @@ class SettingNewPass: UIViewController {
 
     @objc private func textFieldEditingDidEnd(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.clear.cgColor
+    }
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func sendBtnPressed(){
+        let sendVC = SuccessPassCreation()
+        navigationController?.pushViewController(sendVC, animated: true)
     }
   
 }

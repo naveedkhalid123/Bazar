@@ -9,6 +9,19 @@ import UIKit
 
 class LogoutViewController: UIViewController {
     
+    // code for closing ther screen when the popup open , then user will click on the view and pop will close
+        
+    var dismissHandler: (() -> Void)?
+       override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+           var touch: UITouch? = touches.first
+           dismissHandler?()
+           if touch?.view == self.view {
+               self.dismiss(animated: true)
+           }
+           
+       }
+        
+    
     private let logoutView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -68,7 +81,8 @@ class LogoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor.appColor(.black)?.withAlphaComponent(0.3)
+        cancelButton.addTarget(self, action: #selector(cancelBtnPressed), for: .touchUpInside)
         setUp()
     }
     
@@ -138,5 +152,9 @@ class LogoutViewController: UIViewController {
             cancelButton.bottomAnchor.constraint(equalTo: logoutView.bottomAnchor, constant: -48),
             cancelButton.heightAnchor.constraint(equalToConstant: 48)
         ])
+    }
+    
+    @objc func cancelBtnPressed(){
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -10,6 +10,8 @@ import DPOTPView
 
 class VerificationCodeController: UIViewController {
     
+    var isFromRegister = false
+    
     private let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "backArrow"), for: .normal)
@@ -105,6 +107,8 @@ class VerificationCodeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(continueBtnPressed), for: .touchUpInside)
         setUp()
     }
     
@@ -183,6 +187,22 @@ class VerificationCodeController: UIViewController {
             continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             continueButton.heightAnchor.constraint(equalToConstant: 48)
         ])
+    }
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func continueBtnPressed(){
+        
+        if isFromRegister {
+            let continueVC = SuccessPassCreation()
+            navigationController?.pushViewController(continueVC, animated: true)
+        } else{
+            let continueVC = SettingNewPass()
+            navigationController?.pushViewController(continueVC, animated: true)
+        }
+      
     }
 }
 

@@ -12,12 +12,12 @@ class SignInViewController: UIViewController {
 
     var isPasswordVisible = false
 
-    private let backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "backArrow"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    private let backButton: UIButton = {
+//        let button = UIButton()
+//        button.setImage(UIImage(named: "backArrow"), for: .normal)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
 
     private let signInView: UIView = {
         let view = UIView()
@@ -155,15 +155,16 @@ class SignInViewController: UIViewController {
     private let labelButtonStack: UIStackView = {
         let label = UILabel()
         label.text = "Don’t have an account?"
-        label.font = UIFont.appFont(.RobotoMedium, size: 14)
+        label.font = UIFont.appFont(.RobotoMedium, size: 16)
         label.textColor = UIColor.appColor(.grey)
         label.translatesAutoresizingMaskIntoConstraints = false
 
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(UIColor.appColor(.purple), for: .normal)
-        button.titleLabel?.font = UIFont.appFont(.RobotoMedium, size: 14)
+        button.titleLabel?.font = UIFont.appFont(.RobotoMedium, size: 16)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(nil, action: #selector(signUpButtonTapped), for: .touchUpInside)
     
         let stackView = UIStackView(arrangedSubviews: [label, button])
         stackView.axis = .horizontal
@@ -298,12 +299,18 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         passPreviewBtn.addTarget(self, action: #selector(previewButtonPressed(_:)), for: .touchUpInside)
+      //  backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        forgotPassBtn.addTarget(self, action: #selector(forgotPassPressed), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginBtnPressed), for: .touchUpInside)
+        
+       
+      
         setUp()
 
     }
     
     private func setUp(){
-        setUpBackArrow()
+       // setUpBackArrow()
         setUpSignInView()
         setUpWelcomeLbl()
         setUpSubHead()
@@ -333,15 +340,15 @@ class SignInViewController: UIViewController {
         setUPAppleViewButton()
     }
     
-    private func setUpBackArrow(){
-        view.addSubview(backButton)
-        NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            backButton.widthAnchor.constraint(equalToConstant: 40),
-            backButton.heightAnchor.constraint(equalToConstant: 40),
-        ])
-    }
+//    private func setUpBackArrow(){
+//        view.addSubview(backButton)
+//        NSLayoutConstraint.activate([
+//            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+//            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+//            backButton.widthAnchor.constraint(equalToConstant: 40),
+//            backButton.heightAnchor.constraint(equalToConstant: 40),
+//        ])
+//    }
     
     
     private func setUpSignInView(){
@@ -553,7 +560,26 @@ class SignInViewController: UIViewController {
 
         ])
     }
-   
+    
+    @objc private func signUpButtonTapped() {
+        let signUpVC = SignUpViewController() 
+        navigationController?.pushViewController(signUpVC, animated: true)
+    }
+    
+//    @objc private func backButtonTapped(){
+//        navigationController?.popViewController(animated: true)
+//    }
+    
+    @objc private func forgotPassPressed() {
+        let forgotPassVC = ForgotPasswordController()
+        navigationController?.pushViewController(forgotPassVC, animated: true)
+    }
+    
+    @objc func loginBtnPressed(){
+        let loginVC = TabBarController()
+        navigationController?.pushViewController(loginVC, animated: true)
+    }
+    
 }
 
 

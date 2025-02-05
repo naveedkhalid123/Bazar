@@ -434,6 +434,9 @@ class SetLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        confirmationButton.addTarget(self, action: #selector(confirmBtnPressed), for: .touchUpInside)
         setUp()
     }
     
@@ -753,5 +756,14 @@ class SetLocationViewController: UIViewController {
         ])
     }
 
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func confirmBtnPressed(){
+        let confirmVC = OrderDetailsViewController()
+        navigationController?.pushViewController(confirmVC, animated: true)
+    }
     
 }

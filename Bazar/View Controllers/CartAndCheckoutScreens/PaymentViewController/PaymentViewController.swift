@@ -9,6 +9,18 @@ import UIKit
 
 class PaymentViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
+    // code for closing ther screen when the popup open , then user will click on the view and pop will close
+        
+    var dismissHandler: (() -> Void)?
+       override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+           var touch: UITouch? = touches.first
+           dismissHandler?()
+           if touch?.view == self.view {
+               self.dismiss(animated: true)
+           }
+           
+       }
+    
     let paymentsArr: [[String: String]] = [["img":"payment1", "label":"KNET"],["img":"payment2", "label":"Credit Card"],["img":"payment1", "label":"KNET"],["img":"payment2", "label":"Credit Card"],]
     
     private var selectedIndexPath: IndexPath?
@@ -50,6 +62,8 @@ class PaymentViewController: UIViewController , UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.appColor(.black)?.withAlphaComponent(0.3)
+        
         paymentTableView.delegate = self
         paymentTableView.dataSource = self
     

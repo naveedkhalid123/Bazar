@@ -10,6 +10,8 @@ import UIKit
 
 class ForgotPasswordController: UIViewController {
     
+    var didSelectImage = true
+    
     private let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "backArrow"), for: .normal)
@@ -54,6 +56,8 @@ class ForgotPasswordController: UIViewController {
     @objc private func emailButtonTapped() {
         print("Email button tapped!")
         
+        didSelectImage = true
+        
         emailViewButton.isSelected = true
         phoneViewButton.isSelected = false
     
@@ -61,6 +65,8 @@ class ForgotPasswordController: UIViewController {
     }
 
     @objc private func phoneButtonTapped() {
+        
+        didSelectImage = false
         print("Phone button tapped!")
         
         phoneViewButton.isSelected = true
@@ -168,6 +174,8 @@ class ForgotPasswordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        backButton.addTarget(self, action: #selector(backBtnPressed), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(continueBtnPressed), for: .touchUpInside)
         setUp()
     }
     
@@ -352,5 +360,19 @@ class ForgotPasswordController: UIViewController {
         }
     }
 
+    
+    @objc func backBtnPressed(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func continueBtnPressed(){
+        if didSelectImage == true {
+            let vc = ResetPassWithEmail()
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = ResetPassWithPhone()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 
 }
