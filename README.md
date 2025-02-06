@@ -20,3 +20,5 @@ With order tracking, delivery updates, and order history, users stay informed at
 
 ![Banner Image 2](https://github.com/naveedkhalid123/Bazar/blob/0b46bbf0138f813cf0dc0bfb0587c6620be149ac/Banner%206.jpg)
 
+![Banner Image](https://github.com/naveedkhalid123/Bazar/blob/baac67d3b29ad4661fdf95602cbe6a5e47938940/Banner%207.jpg)
+
